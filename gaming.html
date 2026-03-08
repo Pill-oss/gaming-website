@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elias's Gaming Hub</title>
+
+<style>
+
+/* Cyberpunk Neon */
+.theme-cyberpunk{
+  background: linear-gradient(135deg,#ff00ff,#00ffff,#ff0080,#00ff80);
+  color: #fff;
+}
+
+/* Retro 80s Arcade */
+.theme-retro{
+  background: linear-gradient(135deg,#ff6f61,#ffb347);
+  color: #111;
+}
+
+/* Forest Green */
+.theme-forest{
+  background: linear-gradient(135deg,#0b3d0b,#116611);
+  color: #c0ffc0;
+}
+
+/* Deep Space Night */
+.theme-night{
+  background: radial-gradient(circle at top,#000010,#000030);
+  color: #66ccff;
+}
+
+/* Sunset Gradient */
+.theme-sunset-gradient{
+  background: linear-gradient(135deg,#ff7e5f,#feb47b);
+  color: #111;
+}
+
+/* Gold & Black Luxury */
+.theme-gold{
+  background: linear-gradient(135deg,#d4af37,#000000);
+  color: #fff;
+}
+/* ===== BODY & BACKGROUND ===== */
+body{
+margin:0;
+font-family: 'Segoe UI', Arial, sans-serif;
+background: linear-gradient(135deg,#0f0f1a,#1a1a2e);
+color:white;
+overflow-x:hidden;
+transition:0.5s;
+animation: bgAnim 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgAnim{
+0%{background: linear-gradient(135deg,#0f0f1a,#1a1a2e);}
+50%{background: linear-gradient(135deg,#1a0f2a,#2a1a3e);}
+100%{background: linear-gradient(135deg,#0f0f1a,#1a1a2e);}
+}
+
+/* ===== HEADER ===== */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.85);
+padding:15px 25px;
+display:flex;
+justify-content:flex-start;
+align-items:center;
+z-index:1000;
+gap:15px;
+box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+}
+
+.logo{
+color:#00f7ff;
+font-size:24px;
+font-weight:bold;
+letter-spacing:1px;
+text-shadow:0 0 10px #00f7ff;
+}
+
+/* NAV BUTTONS */
+nav button{
+padding:8px 16px;
+background:#00f7ff;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 0 10px #00f7ff50;
+}
+
+nav button:hover{
+transform: scale(1.05);
+box-shadow:0 0 20px #00f7ff;
+}
+
+/* ===== SECTIONS ===== */
+section{
+display:none;
+padding:120px 25px 50px 25px;
+min-height:100vh;
+animation:fade 0.5s ease-in-out;
+}
+
+.active{display:block;}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(15px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* ===== HERO ===== */
+.hero{
+text-align:center;
+margin-top:40px;
+}
+
+.main-title{
+font-size:60px;
+color:#00f7ff;
+text-shadow:0 0 20px #00f7ff, 0 0 40px #00f7ff50;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 15px #00f7ff;}
+to{text-shadow:0 0 50px #00f7ff,0 0 100px #00f7ff50;}
+}
+
+.subtitle{
+opacity:0.85;
+margin:15px 0 35px 0;
+font-size:20px;
+}
+
+/* HERO BUTTON */
+.hero-btn{
+padding:16px 32px;
+background:#00f7ff;
+border:none;
+border-radius:50px;
+font-weight:bold;
+font-size:20px;
+cursor:pointer;
+transition:0.4s;
+text-shadow:0 0 10px #fff;
+}
+
+.hero-btn:hover{
+transform: scale(1.15);
+box-shadow:0 0 30px #00f7ff, 0 0 60px #00f7ff50;
+}
+
+/* ===== FEATURES ===== */
+.features{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+margin-top:50px;
+}
+
+.feature-card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:20px;
+width:260px;
+text-align:center;
+backdrop-filter:blur(12px);
+transition:0.4s;
+box-shadow:0 0 15px #00f7ff30;
+position:relative;
+overflow:hidden;
+}
+
+.feature-card:hover{
+transform: translateY(-12px) scale(1.05);
+box-shadow:0 0 30px #00f7ff80, 0 0 60px #00f7ff30;
+}
+
+.feature-card::before{
+content:'';
+position:absolute;
+top:0;left:0;width:100%;height:100%;
+background: linear-gradient(120deg,#00f7ff,#ff00f7,#00f7ff);
+opacity:0.15;
+filter:blur(20px);
+transition:0.5s;
+}
+
+.feature-card:hover::before{
+opacity:0.4;
+}
+
+/* ===== STATS ===== */
+.stats{
+display:flex;
+justify-content:center;
+gap:80px;
+margin-top:60px;
+text-align:center;
+}
+
+.stats h2{
+font-size:42px;
+color:#00f7ff;
+text-shadow:0 0 10px #00f7ff;
+transition:0.5s;
+}
+
+/* ===== CARDS ===== */
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+max-width:480px;
+margin:20px auto;
+backdrop-filter:blur(12px);
+box-shadow:0 0 20px #00f7ff20;
+transition:0.3s;
+}
+
+.card:hover{
+transform: translateY(-6px);
+box-shadow:0 0 35px #00f7ff50;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+background:#111;
+border:none;
+color:white;
+border-radius:6px;
+}
+
+button.full{
+width:100%;
+margin-top:10px;
+cursor:pointer;
+border-radius:8px;
+background:#00f7ff;
+border:none;
+padding:10px;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 0 10px #00f7ff40;
+}
+
+button.full:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #00f7ff80;
+}
+
+/* ===== GAME GRID ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:25px;
+}
+
+.gameCard{
+background:#1a1a2e;
+padding:12px;
+border-radius:12px;
+text-align:center;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+cursor:pointer;
+}
+
+.gameCard:hover{
+transform: scale(1.05);
+box-shadow:0 0 20px #00f7ff50,0 0 50px #00f7ff20 inset;
+}
+
+.gameCard img{
+width:100%;
+border-radius:10px;
+margin-bottom:8px;
+}
+
+iframe{
+width:100%;
+height:500px;
+border:none;
+background:black;
+border-radius:12px;
+}
+
+/* ===== THEMES ===== */
+
+/* Purple */
+.theme-purple-white{
+background:linear-gradient(135deg,#4b0082,#2a003f);
+color:white;
+}
+
+/* Neon Green */
+.theme-neon-green{
+background:linear-gradient(135deg,#001a00,#003d1f);
+color:#00ff88;
+}
+
+/* Ocean Blue */
+.theme-ocean{
+background:linear-gradient(135deg,#001f3f,#004080);
+color:#66ccff;
+}
+
+/* Sunset */
+.theme-sunset{
+background:linear-gradient(135deg,#ff512f,#dd2476);
+color:white;
+}
+
+/* Midnight Red */
+.theme-midnight-red{
+background:linear-gradient(135deg,#1a0000,#330000);
+color:#ff4d4d;
+}
+
+/* Light Mode */
+.theme-light{
+background:#f4f4f4;
+color:#111;
+}
+
+.theme-light header{
+background:rgba(255,255,255,0.95);
+}
+
+.theme-light .card,
+.theme-light .feature-card{
+background:rgba(0,0,0,0.05);
+}
+
+.theme-light input{
+background:#fff;
+color:#000;
+}
+
+/* RGB Animated Gamer Theme */
+.theme-rgb{
+background:linear-gradient(-45deg,#ff0000,#00ff00,#0000ff,#ff00ff);
+background-size:400% 400%;
+animation:rgbMove 8s ease infinite;
+color:white;
+}
+
+@keyframes rgbMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Elias's Gaming Hub</div>
+<nav id="navButtons"></nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="active">
+<div class="hero">
+<h1 class="main-title">Elias's Gaming Hub</h1>
+<p class="subtitle">Play. Upload. Create. Compete.</p>
+<button class="hero-btn" onclick="showTab('games')">🎮 Start Playing</button>
+</div>
+
+<div class="features">
+<div class="feature-card">
+<h3>🎮 30+ Games</h3>
+<p>Action, Racing, Arcade, Multiplayer & More.</p>
+</div>
+<div class="feature-card">
+<h3>👩‍🍼 My Mom Kinda Homeless</h3>
+<p>Submit more games to me in school :).</p>
+</div>
+<div class="feature-card">
+<h3>🎨 Custom Themes</h3>
+<p>Switch styles anytime with one click.</p>
+</div>
+</div>
+
+<div class="stats">
+<div>
+<h2 id="gameCount">0</h2>
+<p>Games Available</p>
+</div>
+<div>
+<h2 id="userCount">0</h2>
+<p>Registered Players</p>
+</div>
+</div>
+</section>
+
+<!-- AUTH -->
+<section id="auth">
+<div class="card">
+<h3>Login / Register</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button class="full" onclick="register()">Register</button>
+<button class="full" onclick="login()">Login</button>
+<p id="authMsg"></p>
+</div>
+</section>
+
+<!-- GAMES -->
+<section id="games">
+<h2 style="text-align:center;">🎮 Game Library</h2>
+
+<div style="text-align:center; margin-top:10px;">
+  <button class="hero-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+</div>
+
+
+<!-- SEARCH BAR -->
+<div style="max-width:500px;margin:20px auto;text-align:center;">
+<input 
+type="text" 
+id="gameSearch" 
+placeholder="🔎 Search for a game..." 
+onkeyup="searchGames()"
+style="padding:12px;width:100%;border-radius:30px;border:none;outline:none;font-size:16px;">
+</div>
+
+<div class="grid" id="gameGrid"></div>
+
+<h3 style="text-align:center;margin-top:40px;">🕹 Game Player</h3>
+<iframe id="gameFrame"></iframe>
+</section>
+
+
+<!-- ADMIN -->
+<section id="admin">
+<h2>Admin Panel</h2>
+
+<div class="card">
+<h3>Add External Game (URL)</h3>
+<input type="text" id="gameName" placeholder="Game Name">
+<input type="text" id="gameURL" placeholder="Game URL">
+<button onclick="addGame()">Add Game</button>
+</div>
+
+<div class="card" style="margin-top:20px;">
+  <h3>Danger Zone</h3>
+  <button onclick="clearAllGames()" style="background:#ff4d4d;color:white;">Clear All Games</button>
+</div>
+
+
+<div class="card" style="margin-top:20px;">
+<h3>Upload HTML Game</h3>
+<input type="text" id="uploadGameName" placeholder="Game Name">
+<input type="file" id="htmlFile" accept=".html">
+<button onclick="uploadGame()">Upload & Play</button>
+</div>
+
+</section>
+
+<!-- LIVE CHAT -->
+<section id="chat">
+  <h2>💬 Live Chat</h2>
+  <div class="card" style="max-width:600px;margin:auto;">
+    <div id="chatBox" style="height:300px;overflow-y:auto;background:#111;padding:10px;border-radius:10px;margin-bottom:10px;"></div>
+    <input type="text" id="chatMessage" placeholder="Type your message..." style="width:80%;padding:10px;border-radius:6px;border:none;">
+    <button onclick="sendMessage()" style="width:18%;padding:10px;margin-left:2%;border-radius:6px;background:#00f7ff;border:none;color:#111;font-weight:bold;">Send</button>
+  </div>
+</section>
+
+<!-- PUBLIC PROFILE -->
+<section id="publicProfile">
+  <h2>👤 User Profile</h2>
+
+  <div class="card" style="max-width:600px;margin:auto;">
+    <h3 id="profileUsername"></h3>
+    <p id="profileBio"></p>
+    <button id="profileAddFriendBtn" onclick="addFriendFromProfile()">Add Friend</button>
+  </div>
+</section>
+
+<!-- FRIENDS TAB -->
+<section id="friends">
+  <h2>👥 Friends</h2>
+
+
+  <div class="card" style="max-width:600px;margin:auto;">
+    <h3>Add Friend</h3>
+    <input type="text" id="friendUsername" placeholder="Friend's username">
+    <button onclick="addFriend()">Add Friend</button>
+    <p id="friendMsg"></p>
+  </div>
+
+  <div class="card" style="max-width:600px;margin:auto;margin-top:15px;">
+    <h3>Your Friends</h3>
+    <ul id="friendList"></ul>
+  </div>
+</section>
+
+<section id="profile">
+  <h2>👤 User Profile</h2>
+
+  <div class="card" style="max-width:600px;margin:auto;text-align:center;">
+    <img id="profilePicDisplay" 
+         src="https://via.placeholder.com/120" 
+         style="width:120px;height:120px;border-radius:50%;margin-bottom:10px;">
+
+    <h3 id="profileUsername"></h3>
+    <p id="profileJoinDate"></p>
+    <p id="profileBioDisplay"></p>
+
+    <p>🎮 Games Played: <span id="profileGamesPlayed">0</span></p>
+    <p>👥 Friends: <span id="profileFriendCount">0</span></p>
+  </div>
+
+  <div class="card" style="max-width:600px;margin:auto;margin-top:20px;">
+    <h3>Edit Profile</h3>
+    <input type="text" id="profilePicInput" placeholder="Profile Picture URL">
+    <input type="text" id="profileBioInput" placeholder="Your Bio">
+    <button onclick="saveProfile()">Save Profile</button>
+  </div>
+</section>
+
+<!-- GAME SUGGESTIONS -->
+<section id="suggestions">
+  <h2>💡 Game Suggestions</h2>
+
+  <div class="card" style="max-width:600px;margin:auto;">
+    <h3>Suggest a Game</h3>
+    <input type="text" id="suggestGameName" placeholder="Game Name Idea">
+    <button onclick="addSuggestion()">Submit Suggestion</button>
+  </div>
+
+  <div class="card" style="max-width:600px;margin:auto;margin-top:20px;">
+    <h3>Community Ideas</h3>
+    <ul id="suggestionList"></ul>
+  </div>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings">
+<h2>Settings</h2>
+<div class="card">
+
+<h3>Themes</h3>
+<button onclick="setTheme('')">Default Dark</button>
+<button onclick="setTheme('theme-purple-white')">Purple</button>
+<button onclick="setTheme('theme-neon-green')">Neon Green</button>
+<button onclick="setTheme('theme-ocean')">Ocean Blue</button>
+<button onclick="setTheme('theme-sunset')">Sunset</button>
+<button onclick="setTheme('theme-midnight-red')">Midnight Red</button>
+<button onclick="setTheme('theme-light')">Light Mode</button>
+<button onclick="setTheme('theme-rgb')">RGB Gamer</button>
+<button onclick="setTheme('theme-cyberpunk')">Cyberpunk Neon</button>
+<button onclick="setTheme('theme-retro')">Retro 80s</button>
+<button onclick="setTheme('theme-forest')">Forest Green</button>
+<button onclick="setTheme('theme-night')">Night Mode</button>
+<button onclick="setTheme('theme-sunset-gradient')">Sunset Gradient</button>
+<button onclick="setTheme('theme-gold')">Gold & Black</button>
+
+<h3 style="margin-top:20px;">Tab Cloaker</h3>
+<button onclick="cloakTab('google')">Google</button>
+<button onclick="cloakTab('classroom')">Google Classroom</button>
+<button onclick="cloakTab('docs')">Google Docs</button>
+<button onclick="cloakTab('drive')">Google Drive</button>
+<button onclick="cloakTab('youtube')">YouTube</button>
+<button onclick="cloakTab('reset')">Reset</button>
+</div>
+</section>
+
+<script>
+
+function toggleFullscreen() {
+    let iframe = document.getElementById("gameFrame");
+    
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+    }
+}
+
+
+/* TAB SYSTEM */
+function showTab(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  if(id==="profile"){
+    loadProfile();
+  }
+}
+/* CLEAR ALL GAMES (ADMIN ONLY) */
+function clearAllGames() {
+    if(localStorage.getItem("currentUser") !== "eliastheowner") return;
+
+    if(confirm("Are you sure you want to delete ALL games? This cannot be undone!")){
+        games = []; // empty the games array
+        localStorage.setItem("games", JSON.stringify(games)); // update storage
+        renderGames(); // refresh the game grid
+        alert("All games have been deleted!");
+    }
+}
+
+
+/* USERS */
+let users=JSON.parse(localStorage.getItem("users"))||{};
+let currentUser=localStorage.getItem("currentUser");
+
+/* REGISTER */
+function register(){
+let u=username.value;
+let p=password.value;
+if(!u||!p)return;
+if(users[u]){authMsg.innerText="Username already exists."; return;}
+
+users[u]={
+  password:p,
+  bio:"Hey! I'm new to Elias's Gaming Hub 🎮"
+};
+
+localStorage.setItem("users",JSON.stringify(users));
+authMsg.innerText="Registered!";
+updateStats();
+updateNav();
+}
+
+/* LOGIN */
+function login(){
+let u=username.value;
+let p=password.value;
+if(users[u] && users[u].password===p){
+localStorage.setItem("currentUser",u);
+updateNav();
+authMsg.innerText="Login successful!";
+showTab("home");
+updateStats();
+}else{
+authMsg.innerText="Invalid login.";
+}
+}
+
+/* LOGOUT */
+function logout(){
+localStorage.removeItem("currentUser");
+updateNav();
+showTab("home");
+updateStats();
+}
+
+/* NAV UPDATE */
+function updateNav(){
+let nav=document.getElementById("navButtons");
+nav.innerHTML="";
+nav.innerHTML+=`<button onclick="showTab('home')">Home</button>`;
+nav.innerHTML+=`<button onclick="showTab('games')">Games</button>`;
+nav.innerHTML+=`<button onclick="showTab('chat')">Chat</button>`;
+nav.innerHTML+=`<button onclick="showTab('friends')">Friends</button>`;
+nav.innerHTML+=`<button onclick="showTab('suggestions')">Suggestions</button>`;
+nav.innerHTML+=`<button onclick="showTab('settings')">Settings</button>`;
+nav.innerHTML+=`<button onclick="showTab('profile')">Profile</button>`;
+if(localStorage.getItem("currentUser")){
+nav.innerHTML+=`<button onclick="logout()">Logout (${localStorage.getItem("currentUser")})</button>`;
+if(localStorage.getItem("currentUser")==="eliastheowner"){
+nav.innerHTML+=`<button onclick="showTab('admin')">Admin</button>`;
+}
+}else{nav.innerHTML+=`<button onclick="showTab('auth')">Login</button>`;}
+}
+
+/* GAME SYSTEM */
+let games = JSON.parse(localStorage.getItem("games")) || [
+{name:"2048",url:"https://play2048.co/"},
+{name:"Tetris",url:"https://tetris.com/play-tetris"},
+{name:"Snake",url:"https://playsnake.org/"},
+{name:"Slope",url:"https://ubg365.github.io/slope/"},
+{name:"Run 3",url:"https://ubg365.github.io/run-3/"},
+{name:"Retro Bowl",url:"https://ubg365.github.io/retro-bowl/"},
+{name:"Minecraft Classic",url:"https://classic.minecraft.net/"},
+{name:"Cookie Clicker",url:"https://orteil.dashnet.org/cookieclicker/"},
+{name:"1v1.LOL",url:"https://1v1.lol/"}
+];
+
+
+function renderGames(){
+gameGrid.innerHTML="";
+games.forEach((g,i)=>{
+let div=document.createElement("div");
+div.className="gameCard";
+div.innerHTML=`<img src="${g.thumb||''}" alt="${g.name}"><strong>${g.name}</strong><br><button onclick="playGame(${i})">Play</button>`;
+gameGrid.appendChild(div);
+});
+updateStats();
+}
+
+function playGame(i){
+  currentGameIndex = i;
+  gameFrame.src = games[i].url;
+
+  const user = localStorage.getItem("currentUser");
+  if(user){
+    let users = JSON.parse(localStorage.getItem("users")) || {};
+    if(users[user]){
+      users[user].gamesPlayed = (users[user].gamesPlayed || 0) + 1;
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  }
+}
+
+/* ADMIN ADD GAME */
+function addGame(){
+if(localStorage.getItem("currentUser")!=="eliastheowner")return;
+let name=gameName.value;
+let url=gameURL.value;
+games.push({name,url});
+localStorage.setItem("games",JSON.stringify(games));
+renderGames();
+alert("Game Added");
+}
+
+/* UPLOAD LOCAL HTML GAME */
+function uploadGame(){
+let file=document.getElementById("htmlFile").files[0];
+let name=document.getElementById("uploadGameName").value;
+if(!file||!name)return;
+let reader=new FileReader();
+reader.onload=function(e){
+let blob=new Blob([e.target.result],{type:"text/html"});
+let url=URL.createObjectURL(blob);
+games.push({name:name,url:url});
+localStorage.setItem("games",JSON.stringify(games));
+renderGames();
+showTab("games");
+};
+reader.readAsText(file);
+}
+
+/* THEMES */
+function setTheme(theme){document.body.className=theme;}
+
+/* TAB CLOAKER */
+function cloakTab(type){
+if(type==="google") setTab("Google","https://www.google.com/favicon.ico");
+if(type==="classroom") setTab("Google Classroom","https://ssl.gstatic.com/classroom/favicon.png");
+if(type==="docs") setTab("Google Docs","https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico");
+if(type==="drive") setTab("Google Drive","https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png");
+if(type==="youtube") setTab("YouTube","https://www.youtube.com/s/desktop/fe3b9b2f/img/favicon.ico");
+if(type==="reset") setTab("Elias's Gaming Hub","");
+}
+function setTab(title,icon){
+document.title=title;
+let link=document.querySelector("link[rel*='icon']");
+if(!link){link=document.createElement("link");link.rel="icon";document.head.appendChild(link);}
+link.href=icon;
+}
+
+/* UPDATE STATS */
+function updateStats(){
+document.getElementById("gameCount").innerText = games.length;
+let storedUsers = JSON.parse(localStorage.getItem("users")) || {};
+document.getElementById("userCount").innerText = Object.keys(storedUsers).length;
+}
+
+// Initialize chat messages (shared via localStorage)
+let chatMessages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+
+// Render chat messages
+function renderChat(){
+  const chatBox = document.getElementById("chatBox");
+  chatBox.innerHTML = "";
+
+  chatMessages.forEach(msg => {
+    const p = document.createElement("p");
+
+    let usernameHTML = `
+      <span 
+        style="cursor:pointer;text-decoration:underline;" 
+        onclick="openProfile('${msg.user}')">
+        ${msg.user}
+      </span>
+    `;
+
+    if(msg.user === "eliastheowner"){
+      p.innerHTML = `<strong style="color:gold;">👑Admin ${usernameHTML}:</strong> ${msg.text}`;
+    } else {
+      p.innerHTML = `<strong>${usernameHTML}:</strong> ${msg.text}`;
+    }
+
+    chatBox.appendChild(p);
+  });
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Send a chat message
+function sendMessage(){
+  const user = localStorage.getItem("currentUser") || "Guest";
+  const text = document.getElementById("chatMessage").value.trim();
+  if(!text) return;
+  chatMessages.push({user, text});
+  if(chatMessages.length > 100) chatMessages.shift(); // keep last 100 messages
+  localStorage.setItem("chatMessages", JSON.stringify(chatMessages));
+  document.getElementById("chatMessage").value = "";
+  renderChat();
+}
+
+// Optional: auto-refresh chat every second
+setInterval(renderChat, 1000);
+
+// Initial render
+renderChat();
+
+// Initialize friends data
+let friendsData = JSON.parse(localStorage.getItem("friendsData")) || {};
+
+// Add a friend
+function addFriend(){
+  const currentUser = localStorage.getItem("currentUser");
+  if(!currentUser) return alert("You must be logged in to add friends.");
+
+  const friendName = document.getElementById("friendUsername").value.trim();
+  if(!friendName) return;
+  if(friendName === currentUser) return alert("You cannot add yourself.");
+
+  // Check if friend exists
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+  if(!users[friendName]) return alert("User does not exist.");
+
+  // Initialize current user's friends list if needed
+  if(!friendsData[currentUser]) friendsData[currentUser] = [];
+
+  if(friendsData[currentUser].includes(friendName)){
+    document.getElementById("friendMsg").innerText = "Already friends!";
+    return;
+  }
+
+  friendsData[currentUser].push(friendName);
+  localStorage.setItem("friendsData", JSON.stringify(friendsData));
+  document.getElementById("friendMsg").innerText = "Friend added!";
+  document.getElementById("friendUsername").value = "";
+  renderFriends();
+}
+
+// Render friends list
+function renderFriends(){
+  const currentUser = localStorage.getItem("currentUser");
+  const list = document.getElementById("friendList");
+  list.innerHTML = "";
+  if(!currentUser || !friendsData[currentUser]) return;
+
+  friendsData[currentUser].forEach(friend => {
+    // Check online status (green if currently logged in)
+    const isOnline = localStorage.getItem("currentUser") === friend ? "🟢" : "⚪";
+    const li = document.createElement("li");
+    li.innerHTML = `${isOnline} ${friend} <button onclick="challengeFriend('${friend}')">Challenge</button>`;
+    list.appendChild(li);
+  });
+}
+
+// Challenge friend (opens games tab for now)
+function challengeFriend(friend){
+  if(!localStorage.getItem("currentUser")) return;
+  alert(`Challenged ${friend}! (Multiplayer can be added later)`);
+  showTab("games");
+}
+
+// Auto-refresh friends list every 2 seconds
+setInterval(renderFriends, 2000);
+
+/* INIT */
+updateNav();
+renderGames();
+function searchGames(){
+let search = document.getElementById("gameSearch").value.toLowerCase();
+let cards = document.querySelectorAll(".gameCard");
+
+cards.forEach(card=>{
+let title = card.innerText.toLowerCase();
+card.style.display = title.includes(search) ? "block" : "none";
+});
+}
+
+/* ===========================
+   GAME SUGGESTION SYSTEM
+=========================== */
+
+// Load suggestions
+let suggestions = JSON.parse(localStorage.getItem("suggestions")) || [];
+
+// Add suggestion
+function addSuggestion(){
+  const user = localStorage.getItem("currentUser") || "Guest";
+  const name = document.getElementById("suggestGameName").value.trim();
+  if(!name) return;
+
+  suggestions.push({
+    id: Date.now(),
+    name: name,
+    user: user,
+    votes: []
+  });
+
+  localStorage.setItem("suggestions", JSON.stringify(suggestions));
+  document.getElementById("suggestGameName").value = "";
+  renderSuggestions();
+}
+
+// Render suggestions
+function renderSuggestions(){
+  const list = document.getElementById("suggestionList");
+  if(!list) return;
+  list.innerHTML = "";
+
+  suggestions.sort((a,b)=> b.votes.length - a.votes.length);
+
+  suggestions.forEach(s => {
+    const li = document.createElement("li");
+
+    const currentUser = localStorage.getItem("currentUser");
+    const liked = currentUser && s.votes.includes(currentUser);
+
+    li.innerHTML = `
+      <strong>${s.name}</strong> 
+      <small>(by ${s.user})</small>
+      <button onclick="voteSuggestion(${s.id})">
+        ${liked ? "✔️ Liked" : "✔️ Like"}
+      </button>
+      <span> ${s.votes.length} votes</span>
+      ${currentUser==="eliastheowner" ? `<button onclick="deleteSuggestion(${s.id})" style="color:red;">Delete</button>` : ""}
+    `;
+
+    list.appendChild(li);
+  });
+}
+
+// Vote
+function voteSuggestion(id){
+  const user = localStorage.getItem("currentUser");
+  if(!user) return alert("Login to vote!");
+
+  const suggestion = suggestions.find(s=>s.id===id);
+  if(!suggestion) return;
+
+  if(!suggestion.votes.includes(user)){
+    suggestion.votes.push(user);
+  } else {
+    suggestion.votes = suggestion.votes.filter(u=>u!==user);
+  }
+
+  localStorage.setItem("suggestions", JSON.stringify(suggestions));
+  renderSuggestions();
+}
+
+// Delete (Admin only)
+function deleteSuggestion(id){
+  if(localStorage.getItem("currentUser")!=="eliastheowner") return;
+  suggestions = suggestions.filter(s=>s.id!==id);
+  localStorage.setItem("suggestions", JSON.stringify(suggestions));
+  renderSuggestions();
+}
+
+// Auto refresh
+setInterval(renderSuggestions, 2000);
+renderSuggestions();
+
+/* ===========================
+   USER PROFILE SYSTEM
+=========================== */
+
+function loadProfile(){
+  const currentUser = localStorage.getItem("currentUser");
+  if(!currentUser){
+    showTab("auth");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+  let userData = users[currentUser];
+  if(!userData) return;
+
+  profileUsername.innerText = currentUser;
+  profileJoinDate.innerText = "Joined: " + (userData.joinDate || "Unknown");
+  profileBioDisplay.innerText = userData.bio || "No bio yet.";
+  profileGamesPlayed.innerText = userData.gamesPlayed || 0;
+
+  profilePicDisplay.src = userData.profilePic || "https://via.placeholder.com/120";
+
+  let friendsData = JSON.parse(localStorage.getItem("friendsData")) || {};
+  let friendCount = friendsData[currentUser] ? friendsData[currentUser].length : 0;
+  profileFriendCount.innerText = friendCount;
+
+  profilePicInput.value = userData.profilePic || "";
+  profileBioInput.value = userData.bio || "";
+}
+
+function saveProfile(){
+  const currentUser = localStorage.getItem("currentUser");
+  if(!currentUser) return;
+
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+  if(!users[currentUser]) return;
+
+  users[currentUser].profilePic = profilePicInput.value.trim();
+  users[currentUser].bio = profileBioInput.value.trim();
+
+  localStorage.setItem("users", JSON.stringify(users));
+  loadProfile();
+}
+
+function saveBio(){
+  const currentUser = localStorage.getItem("currentUser");
+  if(!currentUser) return;
+
+  users[currentUser].bio = document.getElementById("bioInput").value;
+  localStorage.setItem("users", JSON.stringify(users));
+  alert("Bio updated!");
+}
+
+
+let viewingProfileUser = null;
+
+function openProfile(username){
+  viewingProfileUser = username;
+
+  const users = JSON.parse(localStorage.getItem("users")) || {};
+  const currentUser = localStorage.getItem("currentUser");
+
+  document.getElementById("profileUsername").innerText = username;
+  document.getElementById("profileBio").innerText = users[username]?.bio || "No bio yet.";
+
+  const btn = document.getElementById("profileAddFriendBtn");
+
+  if(currentUser && currentUser !== username){
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+
+  showTab("publicProfile");
+}
+
+function addFriendFromProfile(){
+  const currentUser = localStorage.getItem("currentUser");
+  if(!currentUser || !viewingProfileUser) return;
+
+  if(!friendsData[currentUser]) friendsData[currentUser] = [];
+
+  if(friendsData[currentUser].includes(viewingProfileUser)){
+    alert("Already friends!");
+    return;
+  }
+
+  friendsData[currentUser].push(viewingProfileUser);
+  localStorage.setItem("friendsData", JSON.stringify(friendsData));
+
+  alert("Friend added!");
+}
+
+
+updateStats();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
